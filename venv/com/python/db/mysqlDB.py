@@ -63,6 +63,7 @@ def getUserList():
 
 
 def insertUser(data):
+    '''插入用户'''
     with getMySqlConnection() as cursor:
         cursor.execute("insert into user(id,name,sex) values(%s,%s,%s)", data)
         new_id = cursor.lastrowid
