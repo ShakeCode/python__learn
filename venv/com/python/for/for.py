@@ -32,3 +32,7 @@ while i<5:
 else:
     print("跳出循环")
 
+'''迭代器'''
+for i,e in enumerate(list):
+    print("第",i+1,"个元素:",e)
+
