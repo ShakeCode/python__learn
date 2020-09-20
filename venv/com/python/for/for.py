@@ -36,3 +36,6 @@ else:
 for i,e in enumerate(list):
     print("第",i+1,"个元素:",e)
 
+list='python'
+for i in(len(list),-1,-1):
+    print(i)

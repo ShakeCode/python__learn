@@ -36,13 +36,17 @@ print('多序列和map：', list(map(lambda x, y: x + y, [1, 2, 3, 4], [1, 2, 3,
 # filter(function,iterable)
 # 过滤出序列中整除=2的数据
 t = filter(lambda x: x % 2 == 0, [1, 2, 3, 4])
+# 取完後會輸出[]
 # print(list(t))
 
 # 可迭代函数的返回值
-# 每个可迭代函数的返回值都是一个生成器对象
+# 每个可迭代函数的返回值都是一个生成器对象,沒有元素，拋出stopIteration
 # print(t.__next__())
 # print(t.__next__())
 # print(t.__next__())
+
+# 取完後會輸出[]
+# print(list(t))
 
 # 等价于：
 for a in t:
@@ -52,3 +56,5 @@ for a in t:
 # 主要区别
 # 1、生成器对象只能迭代一次，再次迭代输出为空
 # 2、可迭代对象可迭代多次
+
+
