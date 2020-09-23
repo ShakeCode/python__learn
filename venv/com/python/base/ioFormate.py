@@ -8,6 +8,9 @@ print(a, b, sep=",", end="\n")
 # 占位符
 print("hello %s" % "world")
 
+# {}顺序占位格式化
+print("hello this is  {},{}年".format("world",2020))
+
 # %m.nf
 # m-总长度，n小数点后位数
 
