@@ -1,0 +1,179 @@
+[
+{
+"aweme_id": "7127834926304513313",
+"desc": "90后重庆美女，非洲赚钱路子野，跟总统夫人做姐妹！过上富人生活 #海外生活 #海外华人华侨",
+"create_time": 1659578400,
+"author": {
+"uid": "3237397023693579",
+"short_id": "4160826156",
+"nickname": "小钟Johnny",
+"signature": "我是小钟，一名环球背包旅行者，走过30个国家，现正在非洲工作、旅居。定期分享非洲生活、旅行，关注小钟带你一起看非洲，谢谢~",
+"avatar_larger": {
+"uri": "1080x1080/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c",
+"url_list": [
+"https://p11.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p26.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p3.douyinpic.com/aweme/1080x1080/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172"
+]
+},
+"avatar_thumb": {
+"uri": "100x100/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c",
+"url_list": [
+"https://p26.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p3.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p9.douyinpic.com/aweme/100x100/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172"
+]
+},
+"avatar_medium": {
+"uri": "720x720/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c",
+"url_list": [
+"https://p11.douyinpic.com/aweme/720x720/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p6.douyinpic.com/aweme/720x720/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172",
+"https://p26.douyinpic.com/aweme/720x720/aweme-avatar/tos-cn-avt-0015_fe00727f178ff99e21127ebb72d3f91c.jpeg?from=116350172"
+]
+},
+"follow_status": 0,
+"unique_id": "Johnny_vloger",
+"followers_detail": null,
+"platform_sync_info": null,
+"geofencing": null,
+"policy_version": null,
+"type_label": null,
+"card_entries": null,
+"mix_info": null
+},
+"cha_list": [
+{
+"cid": "1592222488095751",
+"cha_name": "海外华人华侨",
+"desc": "",
+"user_count": 0,
+"connect_music": null,
+"type": 0,
+"cover_item": {
+"uri": "image-cut-tos/269c02c746d7f62ce028e8ca966bd4af.jpg",
+"url_list": [
+"https://p3-sign.douyinpic.com/aweme/100x100/image-cut-tos/269c02c746d7f62ce028e8ca966bd4af.jpg.jpeg?x-expires=1660478400&x-signature=FbqGjD2ikewjxjaNGuUUa8B22Nk%3D&from=715538335",
+"https://p9-sign.douyinpic.com/aweme/100x100/image-cut-tos/269c02c746d7f62ce028e8ca966bd4af.jpg.jpeg?x-expires=1660478400&x-signature=f%2FX4FQwDt%2Bk2OIfWDTL3RP0ZebU%3D&from=715538335",
+"https://p26-sign.douyinpic.com/aweme/100x100/image-cut-tos/269c02c746d7f62ce028e8ca966bd4af.jpg.jpeg?x-expires=1660478400&x-signature=5UAXwK05e4X51Z1nMMBbV%2BhJP%2Bo%3D&from=715538335"
+]
+},
+"view_count": 0,
+"hash_tag_profile": "image-cut-tos/269c02c746d7f62ce028e8ca966bd4af.jpg",
+"is_commerce": false
+}
+],
+"video": {
+"play_addr": {
+"uri": "v0300fg10000cbligfrc77u2qafoa9ig",
+"url_list": [
+"https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0300fg10000cbligfrc77u2qafoa9ig&ratio=720p&line=0"
+]
+},
+"cover": {
+"uri": "tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4",
+"url_list": [
+"https://p9-sign.douyinpic.com/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4~c5_300x400.jpeg?x-expires=1661666400&x-signature=y7neZwVob6WBx0CN7g16u3T78Bo%3D&from=4257465056_large&s=PackSourceEnum_DOUYIN_REFLOW&se=false&sc=cover&l=2022081414535701020810513842ACAF1F",
+"https://p26-sign.douyinpic.com/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4~c5_300x400.jpeg?x-expires=1661666400&x-signature=6vPJF5CQikNVJ5mAgW1d1jqpnVc%3D&from=4257465056_large&s=PackSourceEnum_DOUYIN_REFLOW&se=false&sc=cover&l=2022081414535701020810513842ACAF1F",
+"https://p3-sign.douyinpic.com/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4~c5_300x400.jpeg?x-expires=1661666400&x-signature=F8CaJAfT5T6J5B5LQmkAlOTTCNI%3D&from=4257465056_large&s=PackSourceEnum_DOUYIN_REFLOW&se=false&sc=cover&l=2022081414535701020810513842ACAF1F"
+]
+},
+"height": 1080,
+"width": 1920,
+"dynamic_cover": {
+"uri": "tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4",
+"url_list": [
+"https://p9-sign.douyinpic.com/obj/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4?x-expires=1661666400&x-signature=4yFB%2B%2FMFXZfu9LiQjy1LXo3vhRs%3D&from=4257465056_large",
+"https://p26-sign.douyinpic.com/obj/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4?x-expires=1661666400&x-signature=cFlN6pa4VBjD7OYAQZKXWGKAj4Y%3D&from=4257465056_large",
+"https://p3-sign.douyinpic.com/obj/tos-cn-i-0004/da44d7c303a44a37894b00ed25909ea4?x-expires=1661666400&x-signature=gLD57r%2FpIb49oXCxCxrAAp3fW20%3D&from=4257465056_large"
+]
+},
+"origin_cover": {
+"uri": "tos-cn-p-0004/3eeb49c5c7bb44008ef673a6fc356ab1_1659565514",
+"url_list": [
+"https://p3-sign.douyinpic.com/tos-cn-p-0004/3eeb49c5c7bb44008ef673a6fc356ab1_1659565514~tplv-dy-360p.jpeg?x-expires=1661666400&x-signature=CekkUHhENdWYTHFop9M9DVklmRM%3D&from=4257465056&se=false&biz_tag=feed_cover&l=2022081414535701020810513842ACAF1F",
+"https://p26-sign.douyinpic.com/tos-cn-p-0004/3eeb49c5c7bb44008ef673a6fc356ab1_1659565514~tplv-dy-360p.jpeg?x-expires=1661666400&x-signature=F%2FWoiU6Pcv3xplyaR61njk0L3U4%3D&from=4257465056&se=false&biz_tag=feed_cover&l=2022081414535701020810513842ACAF1F",
+"https://p9-sign.douyinpic.com/tos-cn-p-0004/3eeb49c5c7bb44008ef673a6fc356ab1_1659565514~tplv-dy-360p.jpeg?x-expires=1661666400&x-signature=mvZCy%2BhZbSwiIljdYX66aCWiQow%3D&from=4257465056&se=false&biz_tag=feed_cover&l=2022081414535701020810513842ACAF1F"
+]
+},
+"ratio": "540p",
+"has_watermark": true,
+"bit_rate": null,
+"duration": 679934,
+"vid": "v0300fg10000cbligfrc77u2qafoa9ig",
+"is_long_video": 1
+},
+"share_url": "https://www.iesdouyin.com/share/video/7127834926304513313/?region=&mid=0&u_code=0&did=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&iid=MS4wLjABAAAANwkJuWIRFOzg5uCpDRpMj4OX-QryoDgn-yYlXQnRwQQ&with_sec_did=1&titleType=title",
+"statistics": {
+"aweme_id": "7127834926304513313",
+"comment_count": 77,
+"digg_count": 24489,
+"play_count": 0,
+"share_count": 5509
+},
+"text_extra": [
+{
+"start": 32,
+"end": 37,
+"type": 1,
+"hashtag_name": "海外生活",
+"hashtag_id": 1597381572062215
+},
+{
+"start": 38,
+"end": 45,
+"type": 1,
+"hashtag_name": "海外华人华侨",
+"hashtag_id": 1592222488095751
+}
+],
+"share_info": {
+"share_weibo_desc": "#在抖音，记录美好生活#90后重庆美女，非洲赚钱路子野，跟总统夫人做姐妹！过上富人生活 #海外生活 #海外华人华侨",
+"share_desc": "在抖音，记录美好生活",
+"share_title": "90后重庆美女，非洲赚钱路子野，跟总统夫人做姐妹！过上富人生活 #海外生活 #海外华人华侨"
+},
+"video_labels": null,
+"duration": 679934,
+"aweme_type": 4,
+"image_infos": null,
+"risk_infos": {
+"warn": false,
+"type": 0,
+"content": "",
+"reflow_unplayable": 0
+},
+"comment_list": null,
+"author_user_id": 3237397023693579,
+"geofencing": null,
+"video_text": null,
+"label_top_text": null,
+"promotions": null,
+"long_video": null,
+"from_xigua": true,
+"category": 0,
+"is_preview": 0,
+"group_id": 7127834926304513313,
+"is_live_replay": false,
+"anchor_info": {
+"id": "6660487804931360779",
+"name": "",
+"type": 2
+},
+"forward_id": "0",
+"images": null,
+"group_id_str": "7127834926304513313",
+"aweme_poi_info": {
+"icon": {
+"uri": "33a2200013bb98733b01e",
+"url_list": [
+"https://p26-sign.douyinpic.com/obj/33a2200013bb98733b01e?x-expires=1660629600&x-signature=%2F4zdS8jw3aw4og8hwXGIvfKnric%3D&from=2788469086",
+"https://p3-sign.douyinpic.com/obj/33a2200013bb98733b01e?x-expires=1660629600&x-signature=B2WJfFHQ8NFFlMlOfQoBmClGgFs%3D&from=2788469086",
+"https://p9-sign.douyinpic.com/obj/33a2200013bb98733b01e?x-expires=1660629600&x-signature=PoH%2FhgnmAp4NBMUZTkxifA0gtgM%3D&from=2788469086"
+]
+},
+"poi_name": "The One",
+"type_name": "多哥",
+"tag": "点击了解视频中的地点"
+}
+}
+]

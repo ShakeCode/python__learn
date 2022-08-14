@@ -1,0 +1,7 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file alias="haizei.jpeg">./images/haizei.jpeg</file>
+        <file alias="sky-city.png">./images/sky-city.png</file>
+    </qresource>
+</RCC>
