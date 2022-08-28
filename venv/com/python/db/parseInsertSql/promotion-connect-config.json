@@ -1,0 +1,48 @@
+{
+  "db_info": {
+    "host": "127.0.0.1",
+    "port": 5306,
+    "user": "root",
+    "password": "root",
+    "dcp_framework-dbName": "dcp_framework",
+    "stall-dbName": "promotion",
+    "promotion-dbName": "promotion"
+  },
+  "save_path": "d://",
+  "file_name": "dcp_framework幂等脚本",
+  "@client_code": "8959c6aa-26a5-11ed-a331-3c7c3f602b59",
+  "@tenant_code": "7f24f99d-26a5-11ed-a331-3c7c3f602b59",
+  "@business_datasource_code": "dcp_grid",
+  "@stall_datasource_code": "stall-assistant",
+
+  "@target_client_code": "11118959c6aa-26a5-11ed-a331-3c7c3f602b59",
+  "@target_tenant_code": "7f24f99d-26a5-11ed-a331-3c7c3f602b59",
+  "@target_business_datasource_code": "dcp_grid",
+  "@target_stall_datasource_code": "stall-assistant",
+  "stall": {
+    "target-table-list": [
+      {
+        "table-name": "t_api_m",
+        "api-code-list": [
+          "getUptownDataByCode",
+          "getWebsiteDataByCode"
+        ],
+        "where_filter": "client_code=@client_code and tenant_code=@tenant_code and datasource_code=@stall_datasource_code and code in(@api-code-list)",
+        "column_code": [
+          "client_code",
+          "tenant_code",
+          "datasource_code",
+          "code",
+          "name",
+          "sql",
+          "create_by",
+          "create_date",
+          "modify_by",
+          "modify_date"
+        ]
+      }
+    ]
+  },
+  "promotion": {
+  }
+}
