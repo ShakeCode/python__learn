@@ -14,17 +14,15 @@
   "@tenant_code": "7f24f99d-26a5-11ed-a331-3c7c3f602b59",
   "@business_datasource_code": "dcp_grid",
   "@stall_datasource_code": "stall-assistant",
-
   "@target_client_code": "11118959c6aa-26a5-11ed-a331-3c7c3f602b59",
   "@target_tenant_code": "7f24f99d-26a5-11ed-a331-3c7c3f602b59",
   "@target_business_datasource_code": "dcp_grid",
   "@target_stall_datasource_code": "stall-assistant",
   "stall": {
-    "target-table-list": [
-      {
+    "target-table-list": {
+      "t_api_m": {
         "table-name": "t_api_m",
         "api-code-list": [
-          "getUptownDataByCode",
           "getWebsiteDataByCode"
         ],
         "where_filter": "client_code=@client_code and tenant_code=@tenant_code and datasource_code=@stall_datasource_code and code in(@api-code-list)",
@@ -35,13 +33,18 @@
           "code",
           "name",
           "sql",
+          "status",
+          "effect_date",
+          "describe",
+          "miscro_service",
           "create_by",
           "create_date",
           "modify_by",
-          "modify_date"
+          "modify_date",
+          "extend_column"
         ]
       }
-    ]
+    }
   },
   "promotion": {
   }
