@@ -1,0 +1,39 @@
+{
+  "db_info": {
+    "host": "127.0.0.1",
+    "user": "root",
+    "password": "root",
+    "stall-dbName": "promotion",
+    "promotion-dbName": "promotion"
+  },
+  "@client_code": "1b1dfcc3-26a5-11ed-a331-3c7c3f602b59",
+  "@tenant_code": "1e83ff35-26a5-11ed-a331-3c7c3f602b59",
+  "@business_datasource_code": "dcp_grid",
+  "@stall_datasource_code": "stall-assistant",
+  "stall": {
+    "target-table-list": [
+      {
+        "table-name": "t_api_m",
+        "api-code-list": [
+          "getUptownDataByCode",
+          "getWebsiteDataByCode"
+        ],
+        "where_filter": "client_code=@client_code and tenant_code=@tenant_code and datasource_code=@stall_datasource_code and code in(@api-code-list)",
+        "column_code": [
+          "client_code",
+          "tenant_code",
+          "datasource_code",
+          "code",
+          "name",
+          "sql",
+          "create_by",
+          "create_date",
+          "modify_by",
+          "modify_date"
+        ]
+      }
+    ]
+  },
+  "promotion": {
+  }
+}
