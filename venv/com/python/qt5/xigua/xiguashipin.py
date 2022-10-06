@@ -169,7 +169,7 @@ def mergeAudioVideo(path, title):
     # 将音轨合并到视频中
     video = video.set_audio(audio)
     # 输出
-    video.write_videofile(f"{title}(含音频).mp4")
+    video.write_videofile(f"{path}+{title}(含音频).mp4")
 
 
 # url = "https://www.ixigua.com/6704446868685849092"
