@@ -34,7 +34,7 @@ headers = {
 }
 
 
-def getVideoUrl(url: str):
+def getVideoUrl(url: str, needAudio: bool):
     session = requests.session()
     # Max retries exceeded with url错误
     session.keep_alive = False
@@ -66,6 +66,9 @@ def getVideoUrl(url: str):
     logger.info('无水印播放地址: %s , type: %s ', no_watermark_downloadUrl, type(no_watermark_downloadUrl))
 
     #######################################################################
+    if not needAudio:
+        return {'no_watermark_downloadUrl': no_watermark_downloadUrl, 'title': title}
+
     pattern = re.compile('(?<=window._SSR_HYDRATED_DATA=).*?(?=</script>)')
     jsonResult = pattern.findall(response.text)[0]
     jsonResult = jsonResult.replace(':undefined', ':"undefined"')
@@ -173,15 +176,25 @@ def mergeAudioVideo(path, title):
 
 
 # url = "https://www.ixigua.com/6704446868685849092"
-url = "https://www.ixigua.com/6986561438525424165"
-response = getVideoUrl(url)
+# url = "https://www.ixigua.com/6986561438525424165"
+url = "https://www.ixigua.com/6812123976207172104"
+
+# 是否下载音频
+needAudio = False
+
+# 是否需要合并视频
+needMerge = False
+response = getVideoUrl(url, needAudio)
 
 # 获取真实视频地址
 # print('播放地址: %s ' % get_video_url(response['watermark_downloadUrl']))
 
 # 下载视频
 doDownLoad(response['no_watermark_downloadUrl'], 'D:\\', fileName=response['title'], fileTypeSuffix='.mp4')
-# 下载音频
-doDownLoad(response['audio_url'], 'D:\\', fileName=response['title'], fileTypeSuffix='.mp3')
-# 合并音频视频
-mergeAudioVideo('D:\\', response['title'])
+
+if needAudio:
+    # 下载音频
+    doDownLoad(response['audio_url'], 'D:\\', fileName=response['title'], fileTypeSuffix='.mp3')
+if needMerge:
+    # 合并音频视频
+    mergeAudioVideo('D:\\', response['title'])
