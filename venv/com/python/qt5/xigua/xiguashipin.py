@@ -1,16 +1,14 @@
 import base64
-import re
-import requests
+import json
 import logging
 import os
-import json
+import re
 import time
-
+from moviepy import *
+from moviepy.editor import *
+import requests
 # https://blog.csdn.net/qq_33516409/article/details/119855258
 from selenium import webdriver
-from selenium.webdriver import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.by import By
 
 logFile = 'xigua.log'
 formatStr11 = '%(asctime)s - %(name)s - process_id: %(process)s - thread_id: %(thread)d - %(filename)s - %(levelname)s - %(lineno)d: %(message)s'
@@ -45,7 +43,7 @@ def getVideoUrl(url: str):
     # 抑制证书警告
     requests.packages.urllib3.disable_warnings()
     # 需要先访问一次视频网站获取cookies才行
-    session.get(url, headers=headers)
+    session.get(url, headers=headers, verify=False)
     response = session.get(url + "?wid_try=1", headers=headers, verify=False)
     logger.info('first return json: %s ', response)
     logger.info('response.text: %s ', json.dumps(response.text))
@@ -66,11 +64,32 @@ def getVideoUrl(url: str):
     logger.info('带水印播放地址: %s', watermark_downloadUrl)
     no_watermark_downloadUrl = str(no_watermark_downloadUrl).replace(r".\xd3M\x85", "?")
     logger.info('无水印播放地址: %s , type: %s ', no_watermark_downloadUrl, type(no_watermark_downloadUrl))
+
+    #######################################################################
+    pattern = re.compile('(?<=window._SSR_HYDRATED_DATA=).*?(?=</script>)')
+    jsonResult = pattern.findall(response.text)[0]
+    jsonResult = jsonResult.replace(':undefined', ':"undefined"')
+    jsonData = json.loads(jsonResult)
+    logger.debug('json result: %s', jsonResult)
+    infor = jsonData['anyVideo']['gidInformation']['packerData']['video']
+    dash = infor['videoResource']['dash']
+    if 'dynamic_video' in dash.keys():
+        audioUrl = dash['dynamic_video']['dynamic_audio_list'][0]['main_url']
+        videoUrl = dash['dynamic_video']['dynamic_video_list'][0]['main_url']
+    else:
+        print('未获取到源地址')
+    audio_url = base64.b64decode(audioUrl).decode("utf-8")
+    video_url = base64.b64decode(videoUrl).decode("utf-8")
+
+    logger.info("音频地址: %s", audio_url)
+    logger.info("视频频地址: %s", video_url)
+    #######################################################################
+
     return {'no_watermark_downloadUrl': no_watermark_downloadUrl, 'title': title,
-            'watermark_downloadUrl': watermark_downloadUrl}
+            'watermark_downloadUrl': watermark_downloadUrl, 'audio_url': audio_url}
 
 
-def doDownLoad(url: str, local_save_path: str, fileName: str) -> None:
+def doDownLoad(url: str, local_save_path: str, fileName: str, fileTypeSuffix: str) -> None:
     logger.info('doDownLoad param url: %s, save_path: %s, fileName:　%s', url, local_save_path, fileName)
     """
     下载视频到本地目录
@@ -92,7 +111,7 @@ def doDownLoad(url: str, local_save_path: str, fileName: str) -> None:
 
             # 打印数据的长度
             # path_1为完整文件保存路径
-        path_1 = (local_save_path + fileName + '.mp4')
+        path_1 = (local_save_path + fileName + fileTypeSuffix)
         print("视频:%s  数据长度为:%s   保存文件：%s" % (url, reponse_body_lenth, path_1))
 
         if os.path.exists(path_1):
@@ -104,7 +123,7 @@ def doDownLoad(url: str, local_save_path: str, fileName: str) -> None:
         print('Start download,[File size]:{size:.2f} MB'.format(size=content_size / chunk_size / 1024))
         # 保存抖音视频mp4格式，二进制读取
         # with open(path_1, "wb") as xh:
-        with open((f"{local_save_path}\{fileName}.mp4"), "wb") as xh:
+        with open((f"{local_save_path}\{fileName}{fileTypeSuffix}"), "wb") as xh:
             # 先定义初始进度为0
             write_all = 0
             for data in response.iter_content(chunk_size=chunk_size):
@@ -137,6 +156,22 @@ def get_video_url(html_url):
     return video_url
 
 
+def mergeAudioVideo(path, title):
+    '''合并音频和视频
+    https://blog.csdn.net/weixin_42750611/article/details/125115867?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-125115867-blog-110625602.pc_relevant_3mothn_strategy_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-125115867-blog-110625602.pc_relevant_3mothn_strategy_recovery&utm_relevant_index=7
+    '''
+    video_path = path + title + '.mp4'
+    audio_path = path + title + '.mp3'
+    # 提取音轨
+    audio = AudioFileClip(audio_path)
+    # 读入视频
+    video = VideoFileClip(video_path)
+    # 将音轨合并到视频中
+    video = video.set_audio(audio)
+    # 输出
+    video.write_videofile(f"{title}(含音频).mp4")
+
+
 # url = "https://www.ixigua.com/6704446868685849092"
 url = "https://www.ixigua.com/6986561438525424165"
 response = getVideoUrl(url)
@@ -144,4 +179,9 @@ response = getVideoUrl(url)
 # 获取真实视频地址
 # print('播放地址: %s ' % get_video_url(response['watermark_downloadUrl']))
 
-doDownLoad(response['no_watermark_downloadUrl'], 'D:\\', fileName=response['title'])
+# 下载视频
+doDownLoad(response['no_watermark_downloadUrl'], 'D:\\', fileName=response['title'], fileTypeSuffix='.mp4')
+# 下载音频
+doDownLoad(response['audio_url'], 'D:\\', fileName=response['title'], fileTypeSuffix='.mp3')
+# 合并音频视频
+mergeAudioVideo('D:\\', response['title'])
