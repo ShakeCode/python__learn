@@ -251,16 +251,28 @@ if __name__ == '__main__':
     # 活动审批信息表
     initDataObj.create_activity_flow_table()
 
-    # 插入数据
-    insertData = list()
+
     insert_sql = 'insert into `t_activity_info_m`(name,code,task_code,start_time,end_time,address,status,source,create_way,area_code,area_name,create_date,create_by,update_date,update_by) value (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
     status_list = ['approval', 'waitExecute', 'execute', 'finish']
-    for index in range(10 * 100000):
-        insertData.append(
-            ("测试活动", str(uuid.uuid1()), str(uuid.uuid1()), time.localtime(), time.localtime(),
-             "广东省东莞市",
-             # "ST_GeomFromText({0}, 4326)".format("\'POINT(123.123445 27.456128)\'"),
-             random.sample(status_list, 1)[0], "stall",
-             "1", "DG", "东莞", time.localtime(), "system", time.localtime(), "system"))
-    logger.debug('insertData: %s', insertData)
-    initDataObj.batchInsert(insert_sql, insertData)
+    pageIndex = 100
+    pageSize = 10000
+    for timeParam in range(pageIndex):
+        logger.info('insert %s time', timeParam + 1)
+        # 插入数据
+        insertData = list()
+        for index in range(pageSize):
+            code = str(uuid.uuid3(uuid.NAMESPACE_DNS, str(timeParam * pageSize + index + 1)))
+            # code = str(uuid.uuid1())
+            # (pageIndex -1)*pageSize + (index+1)
+            # code = str(timeParam * pageSize + index + 1)
+            insertData.append(
+                ("测试活动", code,
+                 code, time.localtime(),
+                 time.localtime(),
+                 "广东省东莞市",
+                 # "ST_GeomFromText({0}, 4326)".format("\'POINT(123.123445 27.456128)\'"),
+                 random.sample(status_list, 1)[0], "stall",
+                 "1", "DG", "东莞", time.localtime(), "system", time.localtime(), "system"))
+        logger.debug('insertData: %s', insertData)
+        logger.info('insertData size: %s', len(insertData))
+        initDataObj.batchInsert(insert_sql, insertData)
