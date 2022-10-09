@@ -206,7 +206,6 @@ class initData():
                   `update_date` datetime NOT NULL COMMENT '修改时间',
                   `update_by` varchar(50) NOT NULL COMMENT '修改人',
                  PRIMARY KEY (`id`),
-                 UNIQUE KEY `uqx_t_activity_relation_m_activity_code` (`activity_code`),
                  KEY `inx_t_activity_relation_m_create_by` (`create_by`)
                ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='活动参与人表';
                """
@@ -251,21 +250,28 @@ if __name__ == '__main__':
     # 活动审批信息表
     initDataObj.create_activity_flow_table()
 
+    insert_baseinfo_sql = 'insert into `t_activity_info_m`(name,code,task_code,start_time,end_time,address,status,source,create_way,area_code,area_name,create_date,create_by,update_date,update_by) value (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
 
-    insert_sql = 'insert into `t_activity_info_m`(name,code,task_code,start_time,end_time,address,status,source,create_way,area_code,area_name,create_date,create_by,update_date,update_by) value (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+    insert_baseinfo_extend_sql = 'insert into `t_activity_info_e`(activity_code,activity_type,audit_level, create_date,create_by,update_date,update_by) value (%s,%s,%s,%s,%s,%s,%s)'
+
+    insert_t_activity_relation_m_sql = 'insert into `t_activity_relation_m`(activity_code,participant_id,participant_code,participant_name, charge,create_date,create_by,update_date,update_by) value (%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+
     status_list = ['approval', 'waitExecute', 'execute', 'finish']
     pageIndex = 100
     pageSize = 10000
     for timeParam in range(pageIndex):
         logger.info('insert %s time', timeParam + 1)
         # 插入数据
-        insertData = list()
+        baseinfo_insertData = list()
+        baseinfo_extend_insertData = list()
+        activity_relation_m_insertData = list()
         for index in range(pageSize):
+            # 活动编码
             code = str(uuid.uuid3(uuid.NAMESPACE_DNS, str(timeParam * pageSize + index + 1)))
             # code = str(uuid.uuid1())
             # (pageIndex -1)*pageSize + (index+1)
             # code = str(timeParam * pageSize + index + 1)
-            insertData.append(
+            baseinfo_insertData.append(
                 ("测试活动", code,
                  code, time.localtime(),
                  time.localtime(),
@@ -273,6 +279,23 @@ if __name__ == '__main__':
                  # "ST_GeomFromText({0}, 4326)".format("\'POINT(123.123445 27.456128)\'"),
                  random.sample(status_list, 1)[0], "stall",
                  "1", "DG", "东莞", time.localtime(), "system", time.localtime(), "system"))
-        logger.debug('insertData: %s', insertData)
-        logger.info('insertData size: %s', len(insertData))
-        initDataObj.batchInsert(insert_sql, insertData)
+            baseinfo_extend_insertData.append(
+                (code,
+                 "sqcx", "level0",
+                 time.localtime(), "system", time.localtime(), "system"))
+            for kk in range(3):
+                temIndex = str(kk + 1)
+                activity_relation_m_insertData.append(
+                    (code,
+                     code + temIndex, "zhenglirun" + temIndex, "zhenglirun" + temIndex,
+                     False,
+                     time.localtime(), "system", time.localtime(), "system"))
+        logger.debug('baseinfo_insertData: %s', baseinfo_insertData)
+        initDataObj.batchInsert(insert_baseinfo_sql, baseinfo_insertData)
+        logger.info('baseinfo_insertData size: %s', len(baseinfo_insertData))
+
+        initDataObj.batchInsert(insert_baseinfo_extend_sql, baseinfo_extend_insertData)
+        logger.info('baseinfo_extend_insertData size: %s', len(baseinfo_extend_insertData))
+
+        initDataObj.batchInsert(insert_t_activity_relation_m_sql, activity_relation_m_insertData)
+        logger.info('activity_relation_m_insertData size: %s', len(activity_relation_m_insertData))
