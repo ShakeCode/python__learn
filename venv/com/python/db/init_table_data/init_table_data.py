@@ -262,5 +262,5 @@ if __name__ == '__main__':
              # "ST_GeomFromText({0}, 4326)".format("\'POINT(123.123445 27.456128)\'"),
              random.sample(status_list, 1)[0], "stall",
              "1", "DG", "东莞", time.localtime(), "system", time.localtime(), "system"))
-    logger.info('insertData: %s', insertData)
+    logger.debug('insertData: %s', insertData)
     initDataObj.batchInsert(insert_sql, insertData)
