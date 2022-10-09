@@ -15,6 +15,7 @@ class MysqlHelper:
         self.charset = charset
 
     # 定义上下文管理器，连接后自动关闭连接
+    @contextlib.contextmanager
     def connect(self):
         self.conn = pymysql.connect(host=self.host, port=self.port, db=self.db, user=self.user, passwd=self.passwd,
                                     charset=self.charset)
@@ -92,6 +93,7 @@ class MysqlHelper:
 
 if __name__ == '__main__':
     db = MysqlHelper('127.0.0.1', 5306, 'root', 'root', "promotion")
+    db.connect()
     data = db.get_all("select * from t_uptown_t")
     # print(data)
     print(db.queryAll("select * from t_uptown_t where id =%s", "1"))
