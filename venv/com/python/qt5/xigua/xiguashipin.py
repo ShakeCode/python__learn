@@ -177,13 +177,13 @@ def mergeAudioVideo(path, title):
 
 # url = "https://www.ixigua.com/6704446868685849092"
 # url = "https://www.ixigua.com/6986561438525424165"
-url = "https://www.ixigua.com/6812123976207172104"
+url = "https://www.ixigua.com/7048552544691290631"
 
 # 是否下载音频
-needAudio = False
+needAudio = True
 
 # 是否需要合并视频
-needMerge = False
+needMerge = True
 response = getVideoUrl(url, needAudio)
 
 # 获取真实视频地址
